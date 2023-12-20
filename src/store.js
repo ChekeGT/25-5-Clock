@@ -20,3 +20,5 @@ function createTimerSetter(initialValue){
 
 export let breakSetter = createTimerSetter(5)
 export let sessionSetter = createTimerSetter(25)
+
+export let isPlaying = writable(false)

@@ -1,5 +1,6 @@
 <script>
     import TimeSetter from "./lib/TimeSetter.svelte";
+    import Timer from "./lib/Timer.svelte";
     import { breakSetter, sessionSetter } from "./store";
 </script>
 
@@ -10,5 +11,6 @@
       <TimeSetter timeSetter={breakSetter} name={'Break'}/>
       <TimeSetter timeSetter={sessionSetter} name={"Session"}/>
     </div>
+    <Timer/>
   </div>
 </main>
