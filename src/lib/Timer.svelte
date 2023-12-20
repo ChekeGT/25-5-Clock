@@ -5,6 +5,8 @@
 
     let timer;
     let title = "Session";
+    const audioSrc = "https://cdn.freecodecamp.org/testable-projects-fcc/audio/BeepSound.wav"
+    let audio = new Audio(audioSrc)
 
 
     let convertFromMinutesToSeconds = (minutes) => minutes * 60
@@ -72,7 +74,7 @@
                 timer.set(sessionTime);
                 sessionTimer = sessionTime
                 breakTimer = breakTime
-            }, 1000)
+            }, 5)
         }
 
         function pause(){
@@ -161,8 +163,14 @@
         }
         
     }
-    $: $timer, getTitle()
-    
+
+    async function playAudio(){
+        if ($timer == 0){
+            await audio.play()
+        }
+    }
+    $: $timer, getTitle(), playAudio()
+
 </script>
 
 
@@ -180,5 +188,6 @@
             {/if}
         </button>
         <button on:click={timer.resetTimer}><i class="fa-solid fa-refresh"></i></button>
-    </div>    
+        <audio bind:this={audio} src={audioSrc}></audio>
+    </div>
 </div>
