@@ -5,7 +5,7 @@ function createTimerSetter(initialValue){
     let timerLength = writable(initialValue)
 
     function increment(){
-        timerLength.update(v => v + 1)
+        timerLength.update(v => v >= 60 ? 60 :  v + 1)
     }
     function decrement(){
         timerLength.update(v => v >= 2 ? v - 1 : v)
